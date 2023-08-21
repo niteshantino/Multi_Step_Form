@@ -1,0 +1,14 @@
+@media only screen and (max-width: 768px) {
+    .edu{
+        flex-direction: column;
+    }
+    .addPrev{
+        flex-direction: column;
+    }
+    .eduPrev{
+        flex-direction: column;
+    }
+    .persPrev{
+        flex-direction: column;
+    }
+  }
