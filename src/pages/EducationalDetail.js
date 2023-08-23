@@ -86,7 +86,7 @@ export const EducationalDetail = ({ current, setCurrent }) => {
       educationFormData?.yearPass12 !== "" &&
       educationFormData?.schoolName12 !== "" &&
       educationFormData?.cgpaPercent12 !== "" &&
-      educationFormData?.doc12 !== null
+      educationFormData?.doc12 !== ""
     ) {
       for (let i = 0; i < educationFormData.graduation.length; i++) {
         if (i === 0) {
@@ -95,7 +95,7 @@ export const EducationalDetail = ({ current, setCurrent }) => {
             element?.gradYear !== "" &&
             element?.gradClg !== "" &&
             element?.cgpaPercentGrad !== "" &&
-            element?.docGrad !== null
+            element?.docGrad !== ""
           ) {
             setIsFilled(true);
             break;
@@ -103,7 +103,7 @@ export const EducationalDetail = ({ current, setCurrent }) => {
         }
       }
     }
-  }, [educationFormData, isFilled]);
+  }, [ educationFormData,isFilled]);
 
   const prev = () => {
     setCurrent(current - 1);

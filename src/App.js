@@ -8,7 +8,7 @@ import PreviewEdit from "./pages/PreviewEdit";
 const App = () => {
   
   const { token } = theme.useToken();
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState(2);
   const steps = [
     {
       title: "Personal",
@@ -41,7 +41,7 @@ const App = () => {
   };
   return (
     <>
-      <h1 className="text-center text-4xl font-semibold text-black-600 mb-4">Registration Form</h1>
+      <h1 className="text-center text-4xl font-semibold text-black-600 mb-4 bg-regal-blue p-2">Registration Form</h1>
       <Steps className="p-5 stepper" current={current} items={items} />
       <div style={contentStyle}>{steps[current].content}</div>
       <div
