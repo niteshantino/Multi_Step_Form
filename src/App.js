@@ -8,7 +8,7 @@ import PreviewEdit from "./pages/PreviewEdit";
 const App = () => {
   
   const { token } = theme.useToken();
-  const [current, setCurrent] = useState(2);
+  const [current, setCurrent] = useState(0);
   const steps = [
     {
       title: "Personal",
