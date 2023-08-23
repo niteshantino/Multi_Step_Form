@@ -12,3 +12,32 @@
         flex-direction: column;
     }
   }
+
+  .custom-file-input {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    /* padding: 6px 12px; */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .input-file {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .file-label {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #337ab7;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  

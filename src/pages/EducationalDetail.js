@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { AiTwotoneFilePdf } from "react-icons/ai";
 import {
   setFormData,
   addGraduation,
@@ -84,7 +85,8 @@ export const EducationalDetail = ({ current, setCurrent }) => {
       isFilled === false &&
       educationFormData?.yearPass12 !== "" &&
       educationFormData?.schoolName12 !== "" &&
-      educationFormData?.cgpaPercent12 !== ""
+      educationFormData?.cgpaPercent12 !== "" &&
+      educationFormData?.doc12 !== null
     ) {
       for (let i = 0; i < educationFormData.graduation.length; i++) {
         if (i === 0) {
@@ -92,7 +94,8 @@ export const EducationalDetail = ({ current, setCurrent }) => {
           if (
             element?.gradYear !== "" &&
             element?.gradClg !== "" &&
-            element?.cgpaPercentGrad !== ""
+            element?.cgpaPercentGrad !== "" &&
+            element?.docGrad !== null
           ) {
             setIsFilled(true);
             break;
@@ -159,18 +162,25 @@ export const EducationalDetail = ({ current, setCurrent }) => {
             />
           </div>
           <div>
-            {/* {console.log(educationFormData.doc12, "dvhsdklvjsdl")} */}
-            <p>Document Upload:</p>
-            <input name="doc12" type="file" onChange={handleInputChange} />
-            {
-              educationFormData.doc12?<img className="mt-2 overflow-hidden"
-              src={educationFormData.doc12}
-              name="doc12"
-              width={"100px"}
-              height={"100px"}
-              alt="educationFormData.doc12"
-            />: ""}
-          </div>
+                <p>Document Upload:</p>
+                <div class="custom-file-input">
+                  <input
+                    name="doc12"
+                    type="file"
+                    id="fileInput12"
+                    class="input-file"
+                    onChange={(e) => handleInputChange(e)}
+                  />
+                  <label for="fileInput12" class="file-label">
+                    Choose a file
+                  </label>
+                </div>
+                {educationFormData.doc12 ? (
+                  <AiTwotoneFilePdf className="text-blue-700 w-10 text-5xl" />
+                ) : (
+                  ""
+                )}
+              </div>
         </div>
         <div>
           <div>
@@ -180,7 +190,6 @@ export const EducationalDetail = ({ current, setCurrent }) => {
           </div>
           {educationFormData?.graduation?.map((grad, setIndex) => (
             <div key={setIndex}>
-              
               {setIndex > 0 ? (
                 <div>
                   <h4 className="text-xl font-medium text-black-700 mb-2 mt-2">
@@ -229,17 +238,23 @@ export const EducationalDetail = ({ current, setCurrent }) => {
               </div>
               <div>
                 <p>Document Upload:</p>
-                <input
-                  name="docGrad"
-                  type="file"
-                  onChange={(e) => handleInputChange(e, setIndex)}
-                />
-                {grad.docGrad?<img className="mt-2 overflow-hidden" name="docGrad"
-                    src={grad.docGrad}
-                    width={"100px"}
-                    height={"100px"}
-                    alt="docGrad"
-                  />:""}
+                <div class="custom-file-input">
+                  <input
+                    name="docGrad"
+                    type="file"
+                    id="fileInputGrad"
+                    class="input-file"
+                    onChange={(e) => handleInputChange(e, setIndex)}
+                  />
+                  <label for="fileInputGrad" class="file-label">
+                    Choose a file
+                  </label>
+                </div>
+                {grad.docGrad ? (
+                  <AiTwotoneFilePdf className="text-blue-700 w-10 text-5xl" />
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           ))}
@@ -282,7 +297,6 @@ export const EducationalDetail = ({ current, setCurrent }) => {
                     onChange={(e) => handleInputChange(e, setIndex)}
                     required
                   />
-                  
                 </div>
                 <div>
                   <label htmlFor="postGradClg">College Name: </label>
@@ -308,22 +322,26 @@ export const EducationalDetail = ({ current, setCurrent }) => {
                     required
                   />
                 </div>
-                <div >
-                  <p>Document Upload:</p>
+                <div>
+                <p>Document Upload:</p>
+                <div class="custom-file-input">
                   <input
                     name="docPostGrad"
                     type="file"
+                    id="fileInputPostGrad"
+                    class="input-file"
                     onChange={(e) => handleInputChange(e, setIndex)}
                   />
-                  {
-                    postGrad.docPostGrad?<img className="mt-2" name="docPostGrad"
-                    src={postGrad.docPostGrad}
-                    width={"100px"}
-                    height={"100px"}
-                    alt="docPostGrad"
-                  />:""
-                  }
+                  <label for="fileInputPostGrad" class="file-label">
+                    Choose a file
+                  </label>
                 </div>
+                {postGrad.docPostGrad ? (
+                  <AiTwotoneFilePdf className="text-blue-700 w-10 text-5xl" />
+                ) : (
+                  ""
+                )}
+              </div>
               </div>
             ))}
             {/* <label htmlFor="docPostGrad">Document Upload: </label>

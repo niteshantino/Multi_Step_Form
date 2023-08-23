@@ -30,14 +30,14 @@ const FormSlice = createSlice({
         yearPass12: "",
         schoolName12: "",
         cgpaPercent12: "",
-        doc12: null,
+        doc12: "",
 
         graduation: [
           {
             gradYear: "",
             gradClg: "",
             cgpaPercentGrad: "",
-            docGrad: null,
+            docGrad: "",
           },
         ],
 
@@ -46,7 +46,7 @@ const FormSlice = createSlice({
             postGradYear: "",
             postGradClg: "",
             cgpaPercentPostGrad: "",
-            docPostGrad: null,
+            docPostGrad: "",
           },
         ],
       },
@@ -91,7 +91,7 @@ const FormSlice = createSlice({
         gradYear: "",
         gradClg: "",
         cgpaPercentGrad: "",
-        docGrad: null,
+        docGrad: "",
       });
     },
     addPostGraduation: (state) => {
@@ -99,7 +99,7 @@ const FormSlice = createSlice({
         postGradYear: "",
         postGradClg: "",
         cgpaPercentPostGrad: "",
-        docPostGrad: null,
+        docPostGrad: "",
       });
     },
   },

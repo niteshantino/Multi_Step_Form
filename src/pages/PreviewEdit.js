@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { FaEye } from "react-icons/fa";
 
 const PreviewEdit = ({ setCurrent }) => {
   const personalFormData = useSelector((state) => state.form.formData.personal);
@@ -153,8 +154,29 @@ const PreviewEdit = ({ setCurrent }) => {
           </div>
           <div>
             <b>Uploaded Document: </b>
-            {/* <span>{educationFormData.doc12} </span> */}
-            <a href={educationFormData.doc12} target="_blank" rel="noreferrer">
+            {educationFormData.doc12 ? (
+              <a
+                href={educationFormData.doc12}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {/* <img
+                  className="mt-2 overflow-hidden"
+                  src={educationFormData.doc12}
+                  name="doc12"
+                  width={"100px"}
+                  height={"100px"}
+                  alt="educationFormData.doc12"
+                /> */}
+
+                <div className="inline-block">
+                  <FaEye className="text-blue-700 w-10 text-lg" />
+                </div>
+              </a>
+            ) : (
+              ""
+            )}
+            {/* <a href={educationFormData.doc12} target="_blank" rel="noreferrer">
               <img
                 className="mt-2"
                 src={educationFormData.doc12}
@@ -162,7 +184,7 @@ const PreviewEdit = ({ setCurrent }) => {
                 height={"100px"}
                 alt="educationFormData.doc12"
               />
-            </a>
+            </a> */}
           </div>
         </div>
         {/* graduation starts */}
@@ -175,14 +197,14 @@ const PreviewEdit = ({ setCurrent }) => {
               <div key={index}>
                 {/* {console.log(grad, "mnbvcx")} */}
                 {index > 0 ? (
-                <div>
-                  <h4 className="text-xl font-medium text-black-700 mb-2 mt-2">
-                    Graduation {index + 1}
-                  </h4>
-                </div>
-              ) : (
-                ""
-              )}
+                  <div>
+                    <h4 className="text-xl font-medium text-black-700 mb-2 mt-2">
+                      Graduation {index + 1}
+                    </h4>
+                  </div>
+                ) : (
+                  ""
+                )}
                 <div>
                   <b>Passing Year </b>
                   <span>{grad.gradYear} </span>
@@ -198,64 +220,65 @@ const PreviewEdit = ({ setCurrent }) => {
                 <div>
                   {/* {console.log(educationFormData.doc12,"qwertyuioiu")} */}
                   <b>Uploaded Document: </b>
-                  {console.log(grad.docGrad, "ertqwertyuicvb")}
+                  {/* {console.log(grad.docGrad, "ertqwertyuicvb")} */}
                   <a href={grad.docGrad} target="_blank" rel="noreferrer">
-                    <img
-                      className="mt-2"
-                      src={grad.docGrad}
-                      width={"100px"}
-                      height={"100px"}
-                      alt="grad.docGrad"
-                    />
+                    <div className="inline-block">
+                      <FaEye className="text-blue-700 w-10 text-lg" />
+                    </div>
                   </a>
                 </div>
               </div>
             );
           })}
         </div>
-        <div>
-          <h2 className="text-2xl font-medium text-black-700 mb-2 mt-5">
-            Post-Graduation
-          </h2>
-          {educationFormData?.postGraduation?.map((postGrad, index) => (
-            <div key={index}>
-              {index > 0 ? (
+        {educationFormData?.postGraduation?.[0].postGradYear ? (
+          <div>
+            <h2 className="text-2xl font-medium text-black-700 mb-2 mt-5">
+              Post-Graduation
+            </h2>
+            {educationFormData?.postGraduation?.map((postGrad, index) => (
+              <div key={index}>
+                {index > 0 ? (
+                  <div>
+                    <h4 className="text-xl font-medium text-black-700 mb-2 mt-2">
+                      Post-Graduation {index + 1}
+                    </h4>
+                  </div>
+                ) : (
+                  ""
+                )}
                 <div>
-                  <h4 className="text-xl font-medium text-black-700 mb-2 mt-2">
-                    Post-Graduation {index + 1}
-                  </h4>
+                  <b>Passing Year </b>
+                  <span>{postGrad.postGradYear} </span>
                 </div>
-              ) : (
-                ""
-              )}
-              <div>
-                <b>Passing Year </b>
-                <span>{postGrad.postGradYear} </span>
+                <div>
+                  <b>School Name: </b>
+                  <span>{postGrad.postGradClg}</span>
+                </div>
+                <div>
+                  <b>Percentage: </b>
+                  <span>{postGrad.cgpaPercentPostGrad} </span>
+                </div>
+                <div>
+                  <b>Uploaded Document: </b>
+
+                  <a
+                    href={postGrad.docPostGrad}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <div className="inline-block">
+                      <FaEye className="text-blue-700 w-10 text-lg" />
+                    </div>
+                  </a>
+                </div>
               </div>
-              <div>
-                <b>School Name: </b>
-                <span>{postGrad.postGradClg}</span>
-              </div>
-              <div>
-                <b>Percentage: </b>
-                <span>{postGrad.cgpaPercentPostGrad} </span>
-              </div>
-              <div>
-                <b>Uploaded Document: </b>
-                {/* <span>{educationFormData.doc12} </span> */}
-                <a href={postGrad.docPostGrad} target="_blank" rel="noreferrer">
-                  <img
-                    className="mt-2"
-                    src={postGrad.docPostGrad}
-                    width={"100px"}
-                    height={"100px"}
-                    alt="postGrad.docPostGrad"
-                  />
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
+
         <div>
           <button
             className="bg-blue-500 text-white font-bold py-2 px-4 rounded cursor-pointer mt-5"
