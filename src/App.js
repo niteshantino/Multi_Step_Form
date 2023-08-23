@@ -6,6 +6,7 @@ import { EducationalDetail } from "./pages/EducationalDetail";
 import PreviewEdit from "./pages/PreviewEdit";
 
 const App = () => {
+  
   const { token } = theme.useToken();
   const [current, setCurrent] = useState(0);
   const steps = [
@@ -40,6 +41,7 @@ const App = () => {
   };
   return (
     <>
+      <h1 className="text-center text-4xl font-semibold text-black-600 mb-4">Registration Form</h1>
       <Steps className="p-5 stepper" current={current} items={items} />
       <div style={contentStyle}>{steps[current].content}</div>
       <div
